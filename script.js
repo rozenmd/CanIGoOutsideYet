@@ -69,14 +69,14 @@ app.controller('mapController', function($scope, $http){
         // ADD A POPUP
       //console.log(")
       var wundergroundURI = "http://api.wunderground.com/api/527dcdb90fd1ec35/geolookup/conditions/q/"+feature.geometry.coordinates.reverse() +".json"
-      var temp_c;
-      $http.get(wundergroundURI)
-        .then(function(response) {
-            temp_c = response.data.current_observation.temp_c;
-            console.log(temp_c);
-            layer.bindPopup('<b>' + feature.properties.Name + ' - '+ feature.properties.State +'</b><br> Current temp: '+ temp_c);
-        });
-        
+      //var temp_c;
+      // $http.get(wundergroundURI)
+      //   .then(function(response) {
+      //       temp_c = response.data.current_observation.temp_c;
+      //       console.log(temp_c);
+       
+      //   });
+            layer.bindPopup('<b>' + feature.properties.Name + ' - '+ feature.properties.State +'</b><br> Current temp: see <a target=_blank href="'+wundergroundURI+'">here</a>'); 
 
       }
     });
