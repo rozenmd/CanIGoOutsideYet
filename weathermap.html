@@ -1,0 +1,86 @@
+
+
+<div class="container">
+	
+	<div class="col-md-6" style="margin-top: 75px;">
+		<div id="map" style="position: relative;
+		width: 100%;
+		height: 550px;"></div>
+	</div>
+
+
+
+
+</div>
+
+
+<script src="js/d3.v3.min.js"></script>
+<script src="js/topojson.v1.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+<script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
+
+<script>
+	function getColor(d) {
+		return d > 1000 ? '#800026' :
+			d > 500  ? '#BD0026' :
+			d > 200  ? '#E31A1C' :
+			d > 100  ? '#FC4E2A' :
+			d > 50   ? '#FD8D3C' :
+			d > 20   ? '#FEB24C' :
+			d > 10   ? '#FED976' :
+			 	  '#FFEDA0';
+	}
+
+	function style(feature) {
+		return {
+			// fillColor: getColor(feature.properties.density),
+			weight: 1,
+			opacity: 1,
+			color: 'black',
+			dashArray: '3',
+			fillOpacity: 0.15
+		};
+	}
+	var mapboxAccessToken = 'pk.eyJ1Ijoicm96ZW5tZCIsImEiOiJlODZmMjk3NDBmYTBhODc5M2U0NDBiYzUyMWM3YjlmOSJ9.muc0sJgn7kvqjzT25Sch-A';
+	var tiles = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=' + mapboxAccessToken, {
+				id: 'mapbox.streets',
+				attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+				'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+				'Imagery © <a href="http://mapbox.com">Mapbox</a>'
+			}),
+			latlng = L.latLng({{lat}}, {{lon}});
+
+	var map = L.map('map', { center: latlng, zoom: 16, layers: [tiles] });
+	var customLayer = L.geoJson(null, {style: style});
+	var popupContent =  'Suburb: <br>';
+	L.marker(latlng).addTo(map).bindPopup(popupContent,{
+		closeButton: true,
+		minWidth: 120
+	});
+	// this can be any kind of omnivore layer
+	//var runLayer = omnivore.topojson('/static/js/final.js', null, customLayer).addTo(map);
+//first, populate all suburbs into a json variable "fullDataSet"
+
+
+	var progress = document.getElementById('progress');
+	var progressBar = document.getElementById('progress-bar');
+
+	function updateProgressBar(processed, total, elapsed, layersArray) {
+		if (elapsed > 1000) {
+			// if it takes more than a second to load, display the progress bar:
+			progress.style.display = 'block';
+			progressBar.style.width = Math.round(processed/total*100) + '%';
+		}
+
+		if (processed === total) {
+			// all markers processed - hide the progress bar:
+			progress.style.display = 'none';
+			progressText.style.display = 'none';
+
+
+		}
+	}
+
+</script>
+
+

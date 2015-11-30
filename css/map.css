@@ -1,0 +1,33 @@
+#map {
+    width: 90%;
+    height: 600px;
+    border: 1px solid #ccc;
+    float:left;
+}
+
+#progress {
+    display: none;
+
+    float:left;
+    z-index: 1000;
+    /*left: 600px;*/
+    /*top: 1500px;*/
+    width: 200px;
+    left: 50%;
+
+    /*top: 1480px;*/
+    height: 20px;
+    margin-top: -20px;
+    margin-left: -100px;
+    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 4px;
+    padding: 2px;
+}
+
+#progress-bar {
+    width: 0;
+    height: 100%;
+    background-color: #76A6FC;
+    border-radius: 4px;
+}
