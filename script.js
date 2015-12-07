@@ -27,7 +27,7 @@ app.controller('obsController', function($scope, $http){
 app.controller('geoController', function($scope, $http){
     var options = {
       enableHighAccuracy: true,
-      timeout: 1000,
+      timeout: 500,
       maximumAge: 0
     };
     function error(err) {
