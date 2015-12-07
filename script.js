@@ -25,8 +25,24 @@ app.controller('obsController', function($scope, $http){
 });
 
 app.controller('geoController', function($scope, $http){
+    var options = {
+      enableHighAccuracy: true,
+      timeout: 1000,
+      maximumAge: 0
+    };
+    function error(err) {
+      console.warn('ERROR(' + err.code + '): ' + err.message);
+      var wundergroundURI = "http://api.wunderground.com/api/527dcdb90fd1ec35/geolookup/conditions/q/autoip.json"
+            $http.get(wundergroundURI)
+            .then(function(response) {
+              $scope.current_observation = response.data;
+              $scope.cityTitle = response.data.location.city.toUpperCase();
+              $scope.lat = response.data.location.lat;
+              $scope.lon = response.data.location.lon;
+            });
+    };
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position){
+        navigator.geolocation.getCurrentPosition(function(position, error,options){
         var wundergroundURI = "http://api.wunderground.com/api/527dcdb90fd1ec35/geolookup/conditions/q/"+position.coords.latitude+","+position.coords.longitude+".json"
             $http.get(wundergroundURI)
             .then(function(response) {
