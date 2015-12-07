@@ -24,14 +24,14 @@
         <!-- <li ng-repeat="x in current_observation">
       {{ x.temp_c }}
     </li> -->
-    <h1 ng-repeat="x in current_observation" ng-if="x.temp_c > 35">NO</h1> 
-    <p class="lead" ng-repeat="x in current_observation" ng-if="x.temp_c > 35">It's {{x.temp_c}} degrees celsius. Stay indoors, and stay hydrated!</p>
+    <h1 ng-repeat="x in current_observation" ng-if="x.temp_c >= 35">NO</h1> 
+    <p class="lead" ng-repeat="x in current_observation" ng-if="x.temp_c >= 35">It's {{x.temp_c}} degrees celsius. Stay indoors, and stay hydrated!</p>
 
-    <h1 ng-repeat="x in current_observation" ng-if="x.temp_c < 35 && x.temp_c > 0">YES!</h1> 
-    <p class="lead" ng-repeat="x in current_observation" ng-if="x.temp_c < 35 && x.temp_c > 0">It's only {{x.temp_c}} degrees celsius.</p>
+    <h1 ng-repeat="x in current_observation" ng-if="x.temp_c <= 35 && x.temp_c >= 0">YES!</h1> 
+    <p class="lead" ng-repeat="x in current_observation" ng-if="x.temp_c <= 35 && x.temp_c >= 0">It's only {{x.temp_c}} degrees celsius.</p>
 
-    <h1 ng-repeat="x in current_observation" ng-if="x.temp_c < 0">NO!</h1> 
-    <p class="lead" ng-repeat="x in current_observation" ng-if="x.temp_c < 0">It's literally freezing at {{x.temp_c}} degrees celsius.</p>
+    <h1 ng-repeat="x in current_observation" ng-if="x.temp_c <= 0">NO!</h1> 
+    <p class="lead" ng-repeat="x in current_observation" ng-if="x.temp_c <= 0">It's literally freezing at {{x.temp_c}} degrees celsius.</p>
         </div>
 
       </div>
