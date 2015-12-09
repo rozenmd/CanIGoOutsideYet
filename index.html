@@ -50,9 +50,9 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="/#/">Home</a></li>
-            <li><a href="#weather">Weather Map</a></li>
-            <li><a href="#about">About</a></li>
+            <li><a id="home" href="/#/">Home</a></li>
+            <li><a id="weathermap" href="#weather">Weather Map</a></li>
+            <li><a id="about" href="#about">About</a></li>
             
             
           </ul>
@@ -75,6 +75,16 @@
     <script src="js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="js/ie10-viewport-bug-workaround.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
+  ga('create', 'UA-42211308-3', 'auto');
+  ga('require', 'about');
+  ga('send', 'pageview');
+
+</script>
 </body>
 </html>
